@@ -31,9 +31,9 @@ hall_circle(:, :, 2) = hall_G;
 hall_circle(:, :, 3) = hall_B;
 imwrite(hall_circle, 'results/hallCircle2.png');
 
-grid_size = 24;
-xgrid = mod(ceil(xcord / grid_size), 2); % use ceil instead of floor
-ygrid = mod(ceil(ycord / grid_size), 2);
-grid_mask = xor(xgrid, ygrid);
-hall_grid = hall_color_copy .* uint8(grid_mask);
-imwrite(hall_grid, 'results/hallGrid.png');
+block_size = 24;
+xblock = mod(ceil(xcord / block_size), 2); % use ceil instead of floor
+yblock = mod(ceil(ycord / block_size), 2);
+block_mask = xor(xblock, yblock);
+hall_block = hall_color_copy .* uint8(block_mask);
+imwrite(hall_block, 'results/hallGrid.png');

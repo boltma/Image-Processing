@@ -1,12 +1,12 @@
 clear; clc;
 
 load data/hall.mat;
-grid_size = 20;
+block_size = 20;
 
-grid = hall_gray(1:grid_size, 1:grid_size);
+block = hall_gray(1:block_size, 1:block_size);
 
-D = my_dct(grid_size);
-grid_trans = D * double(grid) * D';
-grid_trans_2 = dct2(grid);
+D = my_dct(block_size);
+block_trans = D * double(block) * D';
+block_trans_2 = dct2(block);
 
-disp(norm(grid_trans - grid_trans_2));
+disp(norm(block_trans - block_trans_2));
