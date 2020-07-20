@@ -6,6 +6,6 @@ function c = DC_huff(e, DCTAB)
     huff = DCTAB(category + 1, :);
     len = huff(1);
     h = huff(2:1+len);
-    c = [h num2bin(e, category)];
+    c = [h num2bin(e)];
 end
 

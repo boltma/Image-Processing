@@ -1,6 +1,6 @@
-function Q = block_quant(img, QTAB, block_size)
+function Q = block_quant(img, block_size, QTAB)
 %BLOCK_QUANT Block and quantize image
-%   Q = block_quant(img, QTAB, block_size)
+%   Q = block_quant(img, block_size, QTAB)
     D = my_dct(block_size);
     block_handler = @(block_struct) quant(block_struct.data, QTAB, D); 
     Q = blockproc(img, [block_size, block_size], block_handler, 'PadPartialBlocks', true);

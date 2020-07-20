@@ -20,7 +20,7 @@ function c = AC_huff(block, ACTAB)
             huff = ACTAB(run * 10 + category, :);
             len = huff(3);
             h = huff(4:3+len);
-            c = [c h num2bin(e, category)];
+            c = [c h num2bin(e)];
             run = 0;
         end
         idx = idx + 1;
