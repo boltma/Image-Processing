@@ -11,5 +11,5 @@ imshow(snow);
 subplot(1, 2, 2);
 imshow(img_decoded);
 
-P = PSNR(snow, img_decoded);
+P = my_PSNR(snow, img_decoded);
 disp(P);

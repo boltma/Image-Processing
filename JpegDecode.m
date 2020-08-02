@@ -11,5 +11,7 @@ imshow(hall_gray);
 subplot(1, 2, 2);
 imshow(img_decoded);
 
-P = PSNR(hall_gray, img_decoded);
+P = my_PSNR(hall_gray, img_decoded);
+P2 = psnr(hall_gray, img_decoded);
 disp(P);
+disp(norm(P - P2));

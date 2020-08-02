@@ -15,5 +15,5 @@ imshow(img_quant_ori);
 subplot(1, 3, 3);
 imshow(img_quant_half);
 
-P = PSNR(hall_gray, img_quant_half);
+P = my_PSNR(hall_gray, img_quant_half);
 disp(P);

@@ -16,7 +16,7 @@ subplot(1, 2, 2);
 imshow(hall_decoded);
 
 disp(sum(msg == msg_decoded));
-disp(PSNR(hall_gray, hall_decoded));
+disp(my_PSNR(hall_gray, hall_decoded));
 
 msg2 = randi([0 1], 1, 8 * 315);
 
@@ -30,7 +30,7 @@ subplot(1, 2, 2);
 imshow(hall_decoded_2);
 
 disp(sum(msg2 == msg_decoded_2));
-disp(PSNR(hall_gray, hall_decoded_2));
+disp(my_PSNR(hall_gray, hall_decoded_2));
 
 msg3 = randi([0 1], 1, 315);
 
@@ -44,4 +44,4 @@ subplot(1, 2, 2);
 imshow(hall_decoded_3);
 
 disp(sum(msg3 == msg_decoded_3));
-disp(PSNR(hall_gray, hall_decoded_3));
+disp(my_PSNR(hall_gray, hall_decoded_3));
