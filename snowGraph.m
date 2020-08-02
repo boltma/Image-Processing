@@ -1,15 +1,15 @@
 clear; clc; close all;
 
-load data/hall.mat;
+load data/snow.mat;
 load data/JpegCoeff.mat;
-load results/jpegcodes.mat
 
+[H, W, DCCODE, ACCODE] = JPEG_encode(snow, 8, ACTAB, DCTAB, QTAB);
 img_decoded = JPEG_decode(H, W, 8, DCCODE, ACCODE, ACTAB, DCTAB, QTAB);
 figure;
 subplot(1, 2, 1);
-imshow(hall_gray);
+imshow(snow);
 subplot(1, 2, 2);
 imshow(img_decoded);
 
-P = PSNR(hall_gray, img_decoded);
+P = PSNR(snow, img_decoded);
 disp(P);

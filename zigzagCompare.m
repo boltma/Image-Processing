@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all;
 
 block_size = 8;
 zigzag8 = zigzag_loop(reshape(1:block_size^2, block_size, block_size));

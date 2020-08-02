@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all;
 
 load data/hall.mat;
 load results/jpegcodes.mat;

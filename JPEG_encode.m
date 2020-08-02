@@ -11,9 +11,9 @@ function [H, W, DC_code, AC_code] = JPEG_encode(img, block_size, ACTAB, DCTAB, Q
     DC_diff = [DC(1), -diff(DC)];
     DC_code = [];
     AC_code = [];
-    for i = 1:length(DC_diff)
-        DC_code = [DC_code DC_huff(DC_diff(i), DCTAB)]; %#ok<AGROW>
-        AC_code = [AC_code AC_huff(AC(:, i), ACTAB)]; %#ok<AGROW>
+    for idx = 1:length(DC_diff)
+        DC_code = [DC_code DC_huff(DC_diff(idx), DCTAB)]; %#ok<AGROW>
+        AC_code = [AC_code AC_huff(AC(:, idx), ACTAB)]; %#ok<AGROW>
     end
 end
 

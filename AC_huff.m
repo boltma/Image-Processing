@@ -6,12 +6,12 @@ function c = AC_huff(block, ACTAB)
     idx = 1;
     run = 0;
     c = [];
-    while idx < length(block)
+    while idx <= length(block)
         if block(idx) == 0
             run = run + 1;
         else
             if run >= 16
-                c = [c repmat(ZRL, 1, floor(run / 16))];
+                c = [c repmat(ZRL, 1, floor(run / 16))]; %#ok<AGROW>
                 run = mod(run, 16);
             end
             e = block(idx);
@@ -20,7 +20,7 @@ function c = AC_huff(block, ACTAB)
             huff = ACTAB(run * 10 + category, :);
             len = huff(3);
             h = huff(4:3+len);
-            c = [c h num2bin(e)];
+            c = [c h num2bin(e)]; %#ok<AGROW>
             run = 0;
         end
         idx = idx + 1;

@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all;
 
 load data/hall.mat;
 if ~exist('results', 'dir')
