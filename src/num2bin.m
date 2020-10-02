@@ -7,6 +7,8 @@ function arr = num2bin(n)
         s = sign(n);
         n = abs(n);
         arr = de2bi(n, 'left-msb');
+        
+        % reverse all numbers if n < 0
         if s == -1
             arr = 1 - arr;
         end

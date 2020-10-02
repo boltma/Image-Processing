@@ -1,6 +1,9 @@
 function f = detect_face(img, L, N, v, len, step, th)
-%DETECT_FACE 此处显示有关此函数的摘要
-%   此处显示详细说明
+%DETECT_FACE detect face with vector v, and given length, step and
+%threshold
+%   returns vector k * 4, each row is [col row len len], where [col row] is
+%   upper-left corner
+%   f = detect_face(img, L, N, v, len, step, th)
     [h, w, ~] = size(img);
     f = [];
     for row = 1:step:h-len+1 % make sure cropped img does not exceed border

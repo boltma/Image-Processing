@@ -1,6 +1,6 @@
 function n = bin2num(arr)
-%BIN2NUM 此处显示有关此函数的摘要
-%   此处显示详细说明
+%BIN2NUM Converts binary array to n
+%   n = bin2num(arr)
     if isempty(arr)
         n = 0;
     else

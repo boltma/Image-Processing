@@ -7,10 +7,12 @@ function c = AC_huff(block, ACTAB)
     run = 0;
     c = [];
     while idx <= length(block)
+        % find next non-zero element
         if block(idx) == 0
             run = run + 1;
         else
             if run >= 16
+                % more than 16 zeroes, use ZRL
                 c = [c repmat(ZRL, 1, floor(run / 16))]; %#ok<AGROW>
                 run = mod(run, 16);
             end
@@ -26,7 +28,5 @@ function c = AC_huff(block, ACTAB)
         idx = idx + 1;
     end
     c = [c EOB];
-    % AC_huff([10 3 0 0 2 zeros(1,20) 1 zeros(1,37)], ACTAB) =
-    % [1 0 1 1 1 0 1 0 0 1 1 1 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 1 1 1 0 0 1 1 1 1 0 1 1 1 1 0 1 0]
 end
 

@@ -1,7 +1,6 @@
 function DC = DC_huff_decode(c, block_num, DCTAB)
-%DC_HUFF_DECODE 此处显示有关此函数的摘要
-%   此处显示详细说明
-%TODO: Add assertions
+%DC_HUFF_DECODE Decode DC Huffman code
+%   DC = DC_huff_decode(c, block_num, DCTAB)
     category = 0;
     huff = [];
     idx = 0;
@@ -10,6 +9,7 @@ function DC = DC_huff_decode(c, block_num, DCTAB)
     while idx < length(c)
         idx = idx + 1;
         huff = [huff c(idx)]; %#ok<AGROW>
+        % check if current huff is in DCTAB
         while length(huff) == DCTAB(category+1, 1)
             if all(huff == DCTAB(category+1, 2:length(huff)+1))
                 num = c(idx+1:idx+category);

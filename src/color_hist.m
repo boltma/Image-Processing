@@ -1,6 +1,6 @@
 function h = color_hist(img, L, N)
-%COLOR_HIST 此处显示有关此函数的摘要
-%   此处显示详细说明
+%COLOR_HIST Compute color histogram of img with L and N
+%   h = color_hist(img, L, N)
 %   img should be double type
     img = floor(img / 2 ^ (8 - L)); % floor instead of round
     color = img(:, :, 1) * 2 ^ (2 * L) + img(:, :, 2) * 2 ^ L + img(:, :, 3);

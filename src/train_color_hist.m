@@ -1,6 +1,6 @@
 function h = train_color_hist(datapath, L)
-%TRAIN_COLOR_HIST 此处显示有关此函数的摘要
-%   此处显示详细说明
+%TRAIN_COLOR_HIST train with data images
+%   h = train_color_hist(datapath, L)
     assert(L <= 8);
     face_imgs = dir(datapath);
     N = 2 ^ (3 * L);

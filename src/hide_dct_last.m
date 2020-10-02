@@ -12,8 +12,8 @@ function [H, W, DC_code, AC_code] = hide_dct_last(img, msg, block_size, ACTAB, D
     msg = [msg zeros(1, padlen)];
     msg = 2 * msg - 1; % map [0, 1] to [-1, 1]
     for col = 1:size(Q, 2)
-        last = find(Q(:, col) ~= 0, 1, 'last');
-        last = min(last + 1, size(Q, 1));
+        last = find(Q(:, col) ~= 0, 1, 'last'); % find last non-zero element to hide message after
+        last = min(last + 1, size(Q, 1)); % whether last element is non-zero
         Q(last, col) = msg(col);
     end
     

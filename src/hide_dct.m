@@ -7,6 +7,7 @@ function [H, W, DC_code, AC_code] = hide_dct(img, msg, dct_start, dct_len, block
     W = img_size(2);
     Q = block_quant(img, block_size, QTAB);
     
+    % pad message and hide message from dct_start to dct_start+dct_len-1
     padlen = size(Q, 2) * dct_len - length(msg);
     assert(dct_start + dct_len - 1 <= block_size ^ 2);
     assert(padlen >= 0);
@@ -14,6 +15,7 @@ function [H, W, DC_code, AC_code] = hide_dct(img, msg, dct_start, dct_len, block
     msg = reshape(msg, dct_len, []);
     Q(dct_start:dct_start+dct_len-1, :) = 2 * floor(Q(dct_start:dct_start+dct_len-1, :) / 2) + msg;
     
+    % same as JPEG_encode
     DC = Q(1, :);
     AC = Q(2:end, :);
     DC_diff = [DC(1), -diff(DC)];

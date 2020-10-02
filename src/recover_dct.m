@@ -1,6 +1,6 @@
-function [msg, img] = recover_dct(H, W, dct_start, dct_len, block_size, DC_code, AC_code, ACTAB, DCTAB, QTAB)
+function [msg, img] = recover_dct(H, W, dct_start, dct_len, block_size, AC_code, DC_code, ACTAB, DCTAB, QTAB)
 %RECOVER_DCT Recover message from part of DCT
-%   [msg, img] = recover_dct(H, W, dct_start, dct_len, block_size, DC_code, AC_code, ACTAB, DCTAB, QTAB)
+%   [msg, img] = recover_dct(H, W, dct_start, dct_len, block_size, AC_code, DC_code, ACTAB, DCTAB, QTAB)
     block_num = ceil(H / block_size) * ceil(W / block_size);
     try
         DC_diff = DC_huff_decode(DC_code, block_num, DCTAB);

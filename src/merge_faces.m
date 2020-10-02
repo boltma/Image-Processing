@@ -1,8 +1,8 @@
 function s_merged = merge_faces(s, th)
-%MERGE_FACES 此处显示有关此函数的摘要
-%   此处显示详细说明
+%MERGE_FACES merge rectangles if IoMin greater than threshold
+%   s_merged = merge_faces(s, th)
     len = size(s, 1);
-    flags = zeros(1, len);
+    flags = zeros(1, len); % shows whether the face is merged
     for m = 1:len
         for n = 1:len
             if m == n || flags(m) || flags(n)
@@ -10,8 +10,10 @@ function s_merged = merge_faces(s, th)
             end
             rec1 = s(m, :);
             rec2 = s(n, :);
-            u = IoU(rec1, rec2);
+            u = IoMin(rec1, rec2);
             if u > th
+                % could be merged, computer upper-left corner and width and
+                % height
                 flags(n) = 1;
                 s(m, 1) = min(rec1(1), rec2(1));
                 s(m, 2) = min(rec1(2), rec2(2));
@@ -32,9 +34,9 @@ function s_merged = merge_faces(s, th)
 end
 
 
-function u = IoU(rec1, rec2)
-%IOU 此处显示有关此函数的摘要
-%   此处显示详细说明
+function u = IoMin(rec1, rec2)
+%IOMIN compute intersection over minimum area
+%   u = IoMin(rec1, rec2)
     area1 = rec1(3) * rec1(4);
     area2 = rec2(3) * rec2(4);
     area_inter = rectint(rec1, rec2);
